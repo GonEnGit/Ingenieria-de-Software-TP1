@@ -3,6 +3,16 @@ namespace IngSoftTP1;
 
 using EClases;
 
+/* ¿Puedes identificar pruebas de unidad y de integración en la práctica que se realizó? */
+
+// En el archivo UnitTest1.cs hay una serie de pruebas de unidad usando xUnit
+// estas pruebas estan comprobando de funcionamiento de cada funcion o clase
+// creadas hasta el momento individualmente
+
+// En el Archivo Program.cs se hace una prueba de integración
+// de la Tienda interactuando con el Producto
+
+
 public class UnitTest1
 {
     [Fact]
