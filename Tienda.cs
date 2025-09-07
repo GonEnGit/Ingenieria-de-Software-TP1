@@ -25,15 +25,39 @@ public class Tienda
 
     public Producto buscarProducto(string nom)
     {
-        return inventario.FirstOrDefault(prod => prod.Nombre == nom);
+        try
+        {
+            Producto prod =  inventario.FirstOrDefault(prod => prod.Nombre == nom);
+            if (prod == null)
+            {
+                throw new Exception("excepción");
+            }
+            return prod;
+        }
+        catch (System.Exception)
+        {
+            return new Producto("Producto no encontrado", 0, "Sin descripción");
+        }
     }
 
-    public void borrarProducto(string nom)
+    public bool borrarProducto(string nom)
     {
-        Producto prod = inventario.FirstOrDefault(prod => prod.Nombre == nom);
-        if (prod != null)
+        try
         {
-            inventario.Remove(prod);
+            Producto prod = inventario.FirstOrDefault(prod => prod.Nombre == nom);
+            if (prod != null)
+            {
+                inventario.Remove(prod);
+                return true;
+            }
+            else
+            {
+                throw new Exception(" ");
+            }
+        }
+        catch (System.Exception)
+        {
+            return false;
         }
     }
 }

@@ -1,6 +1,13 @@
 ﻿
 using EClases;
 
+/* Variables */
+Producto prodBuscado;
+string nombreBorrado;
+double porcentaje;
+bool confirmacion = false;
+
+
 Console.WriteLine("\ninicio del programa\n");
 
 Tienda tienda = new Tienda();
@@ -19,33 +26,47 @@ foreach (Producto p in tienda.Inventario)
     Console.WriteLine($"{p.Nombre} - {p.Precio} - {p.Descripcion}");
 }
 
+/* actualizar precio */
+Console.Write("Ingrese el nombre del producto: ");
+prodBuscado = tienda.buscarProducto(Console.ReadLine());
+while (prodBuscado.Nombre == "Producto no encontrado")
+{
+    Console.Write("\nDebe ingresar un nombre valido: ");
+    prodBuscado = tienda.buscarProducto(Console.ReadLine());
+}
+
+while (!confirmacion)
+{
+    Console.Write("\nIngrese el porcentaje de cambio: ");
+    double.TryParse(Console.ReadLine(), out porcentaje);
+
+    confirmacion = prodBuscado.ActualizarPrecio(porcentaje);
+    if (!confirmacion)
+    {
+        Console.WriteLine("\nEl porcentaje debe ser positivo.");
+    }
+}
+
+
 /* buscar productos */
-Console.WriteLine("Ingrese el nombre de un producto:");
+Console.Write("\nIngrese el nombre de un producto: ");
 string nombreBuscado = Console.ReadLine();
 
-if (tienda.Inventario.Any(prod => prod.Nombre == nombreBuscado))
-{
-    Producto prod = tienda.Inventario.FirstOrDefault(prod => prod.Nombre == nombreBuscado);
-    Console.WriteLine($"Producto: {prod.Nombre} - {prod.Precio} - {prod.Descripcion}");
-}
-else
-{
-    Console.WriteLine("No se encontró el producto.");
-}
+prodBuscado = tienda.buscarProducto(nombreBuscado);
+Console.WriteLine($"Producto: {prodBuscado.Nombre} - {prodBuscado.Precio} - {prodBuscado.Descripcion}");
 
 /* eliminar producto */
-Console.WriteLine("Ingrese el nombre de un producto a borrar:");
-string nombreBorrado = Console.ReadLine();
+Console.Write("\nIngrese el nombre de un producto a borrar: ");
+nombreBorrado = Console.ReadLine();
 
-if (tienda.Inventario.Any(prod => prod.Nombre == nombreBorrado))
+confirmacion = tienda.borrarProducto(nombreBorrado);
+if (confirmacion)
 {
-    Producto prod = tienda.Inventario.FirstOrDefault(prod => prod.Nombre == nombreBorrado);
-    Console.WriteLine($"Producto: {prod.Nombre} fue borrado");
-    tienda.Inventario.Remove(prod);
+    Console.WriteLine("\nProducto borrado con exito.\n");
 }
 else
 {
-    Console.WriteLine("No se encontró el producto.");
+    Console.WriteLine("\nNo se pudo borrar el producto.\n");
 }
 
 Console.WriteLine(" ");

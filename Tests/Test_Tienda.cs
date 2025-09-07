@@ -28,6 +28,19 @@ public class PruebasTienda
     }
 
     [Fact]
+    public void ProbarProductoInexistente()
+    {
+        Tienda tienda = new Tienda();
+
+        Producto resultado = tienda.buscarProducto("Teclado");
+
+        Assert.NotNull(resultado);                             // porque igual devuelve un objeto
+        Assert.Equal("Producto no encontrado", resultado.Nombre);
+        Assert.Equal(0, resultado.Precio);
+        Assert.Equal("Sin descripción", resultado.Descripcion);
+    }
+
+    [Fact]
     public void ProbarEliminarProducto()
     {
         Tienda tienda = new Tienda();
@@ -36,4 +49,15 @@ public class PruebasTienda
         tienda.borrarProducto("Mouse");
         Assert.Empty(tienda.Inventario);
     }
+
+    [Fact]
+    public void ProbarEliminarProductoInexistente()
+    {
+        Tienda tienda = new Tienda();
+
+        bool resultado = tienda.borrarProducto("Teclado");
+
+        Assert.False(resultado);
+    }
+
 }
