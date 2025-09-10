@@ -1,7 +1,1 @@
 
-Si se tiene en cuenta que en este ejercicio, lo mas importante es el uso de try - catch
-la prueba se podria generar primero para tomar los 2 casos mas basicos, el caso en que la
-funcion finaliza correctamente y el caso en el que da un error cualquiera.
-
-Despues de hacer la prueba se puede crear la funcion y mejorar la prueba de ser necesario
-para que contemple los casos que se agreguen a la función.

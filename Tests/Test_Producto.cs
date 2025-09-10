@@ -26,20 +26,19 @@ public class PruebasProducto
     {
         Producto prod = new Producto("Teclado", 15000, "Es un teclado");
 
-        bool confirmacion = prod.ActualizarPrecio(15);
+    // cuando se ingresa un valor correcto
+        bool confirmacion = prod.ActualizarPrecio(20000);
         Assert.True(confirmacion);
-        Assert.Equal(17250, prod.Precio);
+        Assert.Equal(20000, prod.Precio);
 
-        confirmacion = prod.ActualizarPrecio(0.15);
-        Assert.True(confirmacion);
-        Assert.Equal(17250, prod.Precio);
-
-        confirmacion = prod.ActualizarPrecio(-15);
-        Assert.False(confirmacion);
-        Assert.Equal(15000, prod.Precio);
-
+    // cuando se ingresa 0
         confirmacion = prod.ActualizarPrecio(0);
         Assert.False(confirmacion);
-        Assert.Equal(15000, prod.Precio);
+        Assert.Equal(20000, prod.Precio);
+
+    // cuando se ingresa un valor negativo
+        confirmacion = prod.ActualizarPrecio(-20000);
+        Assert.False(confirmacion);
+        Assert.Equal(20000, prod.Precio);
     }
 }
