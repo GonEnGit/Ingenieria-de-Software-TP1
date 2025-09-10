@@ -27,7 +27,7 @@ public class Tienda
     {
         try
         {
-            Producto prod =  inventario.FirstOrDefault(prod => prod.Nombre == nom);
+            Producto prod = inventario.FirstOrDefault(prod => prod.Nombre == nom);
             if (prod == null)
             {
                 throw new Exception("excepción");
@@ -59,5 +59,10 @@ public class Tienda
         {
             return false;
         }
+    }
+
+    public void AplicarDescuento(string nom, double porcentaje)
+    {
+        
     }
 }

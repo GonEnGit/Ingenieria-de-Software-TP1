@@ -20,21 +20,17 @@ public class Producto
         Descripcion = desc;
     }
 
-    public bool ActualizarPrecio(double porcentaje)
+    public bool ActualizarPrecio(double nuevoPrecio)
     {
         try
         {
-            if (porcentaje <= 0)
+            if (nuevoPrecio <= 0)
             {
                 throw new Exception(" ");
             }
-            else if (porcentaje >= 1)
-            {
-                precio = precio + (precio * (porcentaje / 100));
-            }
             else
             {
-                precio = precio + (precio * porcentaje);
+                precio = nuevoPrecio;
             }
             return true;
         }
