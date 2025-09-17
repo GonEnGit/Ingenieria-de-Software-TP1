@@ -1,1 +1,17 @@
 
+// Para el caso de xUnit, los drivers o controladores serian las funciones
+// antecedidas por las etiquetas [Fact], como public void ProbarProductoInexistente()
+                                              public void ProbarEliminarProducto()
+                                              public void ProbaraActualizarPrecio()
+// o la etiqueta [Theory] que no se usa hasta ahora
+
+
+// Por otro lado, los resguardos son objetos que reemplazan el uso de una interfaz
+// estos no son inherentes a xUnit por lo que se usan a travez de la libreria Moq
+// en este caso un resguardo sería:
+//                                  var mockBuscadorProductos = new Mock<IBuscadorProductos>();
+//                                  mockBuscadorProductos.Setup(b => b.BuscarProductoInterface("Laptop"))
+                                                         .Returns(new Producto { Nombre = "Laptop", Precio = 1000.0, Descripcion = "Una Laptop" });
+
+
+// Algunos nombres para 'Test Double' tambien pueden ser Mock, Stub, Fake o Dummy

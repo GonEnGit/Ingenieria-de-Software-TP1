@@ -1,6 +1,6 @@
 
 // Parece que para poder usar mocks, necesariamente vas a tener que usar
-// interfaces, para no tener que hacer todo de nuevo, lo meejor
+// interfaces, para no tener que hacer todo de nuevo, lo mejor
 // va a ser que crees una nueva clase que solo busque productos
 
 namespace EInterfaces;
