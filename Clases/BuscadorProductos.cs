@@ -16,5 +16,4 @@ public class buscadorProductos : IBuscadorProductos
     {
         return _inventarioInterfaz.FirstOrDefault(p => p.Nombre == nom);
     }
-// si, basicamente es lo mismo que BuscarProdcuto en Tienda + una reimplementación del inventario
 }
