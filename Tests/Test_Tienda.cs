@@ -26,7 +26,7 @@ public class PruebasTienda : IClassFixture<TiendaFixture>
     {
         _tiendaFixture.tiendaDePrueba.Inventario.Clear();
         _tiendaFixture.tiendaDePrueba.agregarProducto("Teclado", 15000, "Es un teclado");
-        _tiendaFixture.tiendaDePrueba.agregarProducto("Mouse", 15000, "Mouse marca RedDragon");
+        _tiendaFixture.tiendaDePrueba.agregarProducto("Mouse", 10000, "es un mouse");
 
         Assert.Multiple(() =>
         {
@@ -61,6 +61,8 @@ public class PruebasTienda : IClassFixture<TiendaFixture>
     public void ProbarEliminarProducto()
     {
         _tiendaFixture.tiendaDePrueba.borrarProducto("Teclado");
+        _tiendaFixture.tiendaDePrueba.borrarProducto("Procesador");
+        _tiendaFixture.tiendaDePrueba.borrarProducto("Monitor");    // tuviste que acomodarlo al nuevo fixture
         Assert.Empty(_tiendaFixture.tiendaDePrueba.Inventario);
     }
 

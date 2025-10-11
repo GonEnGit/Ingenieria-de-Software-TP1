@@ -5,13 +5,13 @@ namespace EClases;
 
 public class Tienda
 {
-// variables
+    // variables
     private List<Producto> inventario;
     private readonly IBuscadorProductos _buscadorProductos;
 
     public List<Producto> Inventario { get => inventario; set => inventario = value; }
 
-// constructores
+    // constructores
     public Tienda()
     {
         inventario = new List<Producto>();
@@ -23,7 +23,7 @@ public class Tienda
         _buscadorProductos = buscadorProductos;
     }
 
-// funciones
+    // funciones
     public void agregarProducto(string nom, double costo, string desc)
     {
         Producto prod = new Producto(nom, costo, desc);
@@ -68,7 +68,7 @@ public class Tienda
         }
     }
 
-// y como tenes que usar interface para los mocks no te queda otra que usarla en el metodo tambien
+    // y como tenes que usar interface para los mocks no te queda otra que usarla en el metodo tambien
     public double AplicarDescuento(string nom, double porcentaje)
     {
         try
@@ -98,5 +98,28 @@ public class Tienda
             Console.WriteLine($"Error en AplicarDescuento: {ex.Message}");
             return 0;
         }
+    }
+
+    public double CalcularTotalCarrito(List<Producto> carrito)
+    {
+    // hacer los descuentos aleatorios complica las pruebas de este metodo
+    // decidiste fijar los descuentos, de todas formas, el metodo ya se testea en otro lado
+        int contador = 0;
+        double total = 0;
+
+        foreach (Producto prod in carrito)
+        {
+            if ((contador % 2) == 0)
+            {
+                total += prod.Precio;
+            }
+            else
+            {
+                total += AplicarDescuento(prod.Nombre, 15);
+            }
+            contador++;
+        }
+
+        return total;
     }
 }
