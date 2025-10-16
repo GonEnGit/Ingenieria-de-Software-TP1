@@ -14,12 +14,7 @@ public class Tienda
 
     public void agregarProducto(string nom, double costo, string desc)
     {
-        Producto prod = new Producto();
-
-        prod.Nombre = nom;
-        prod.Precio = costo;
-        prod.Descripcion = desc;
-
+        Producto prod = new Producto(nom,costo,desc);
         inventario.Add(prod);
     }
 
