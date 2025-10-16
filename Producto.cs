@@ -7,9 +7,9 @@ public class Producto
     private double precio;
     private string descripcion;
 
-    public global::System.String Nombre { get => nombre; set => nombre = value; }
-    public global::System.Double Precio { get => precio; set => precio = value; }
-    public global::System.String Descripcion { get => descripcion; set => descripcion = value; }
+    public string Nombre { get => nombre; set => nombre = value; }
+    public double Precio { get => precio; set => precio = value; }
+    public string Descripcion { get => descripcion; set => descripcion = value; }
 
     public Producto() { }
 
@@ -22,21 +22,14 @@ public class Producto
 
     public bool ActualizarPrecio(double nuevoPrecio)
     {
-        try
+        if (nuevoPrecio <= 0)
         {
-            if (nuevoPrecio <= 0)
-            {
-                throw new Exception(" ");
-            }
-            else
-            {
-                precio = nuevoPrecio;
-            }
-            return true;
+            throw new Exception(" ");
         }
-        catch (System.Exception)
+        else
         {
-            return false;
+            precio = nuevoPrecio;
         }
+        return true;
     }
 }

@@ -1,1 +1,15 @@
 
+// Si, seria posible crear primero las pruebas con los resultados que espero 
+// y dejar que las mismas guien el desarrollo
+
+// Por ejemplo podria crear la prueba ProbarBuscarProducto para que
+// verifique la existencia de algun producto.
+
+// al no haber nada desarrollado todavia la prueba necesariamente va a dejar
+// un error. El paso siguiente seria desarrollar el codigo para el producto
+// y para la Tienda, agregando solamente lo necesario para la funcion ProbarBuscarProducto
+
+// luego verificar que la prueba sea exitosa y corregir lo que haga falta si no.
+
+// a partir de este punto seria repetir el proceso, crear una prueba para algun requisito
+// que aun no existe, desarrollar ese requisito y controlar que funcione de acuerdo a la prueba

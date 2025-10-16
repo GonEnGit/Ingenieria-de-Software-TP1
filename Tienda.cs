@@ -60,9 +60,4 @@ public class Tienda
             return false;
         }
     }
-
-    public void AplicarDescuento(string nom, double porcentaje)
-    {
-        
-    }
 }
