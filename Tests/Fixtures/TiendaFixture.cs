@@ -15,7 +15,7 @@ public class TiendaFixture : IDisposable
         tiendaDePrueba.agregarProducto("Procesador", 100000, "Es un procesador");
         tiendaDePrueba.agregarProducto("Monitor", 200000, "Es un monitor");
 
-        TotalDePruebaDelCarrito = 300000;
+        TotalDePruebaDelCarrito = 15000 + (100000 * 0.85) + 200000;
     }
 
     public void Dispose() {}

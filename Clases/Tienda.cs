@@ -15,6 +15,10 @@ public class Tienda
     public Tienda()
     {
         inventario = new List<Producto>();
+    // agregar el buscador aquí puede parecer redundante...
+    // pero fue la unica forma de arreglar el test ProbarCalcularTotalCarrito
+    // sin alterar mas archivos
+        _buscadorProductos = new buscadorProductos(inventario);
     }
 
     public Tienda(IBuscadorProductos buscadorProductos)

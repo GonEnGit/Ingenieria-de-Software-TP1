@@ -71,4 +71,5 @@ public class PruebaCalcularTotalCarrito : IClassFixture<TiendaFixture>
     // la idea es que la funcion devuelve un objeto Producto que está diseñado para "No existir"
     // pero eso haria que la funcion CalcularTotalCarrito intente buscar un producto con el nombre 
     // "Producto no escontrado" y te termina dando un error
+    // la solucion que encontraste fue usar un mock para saltear el uso de la funcion
 }

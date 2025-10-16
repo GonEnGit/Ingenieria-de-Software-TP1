@@ -1,2 +1,11 @@
 
-// ya esta en el branch, solo falta este ejercicio
+// en un proyecto que consiste en crear un tablero para organizar tareas tipo kanban
+// y que el tablero tenga tres clases: usuario, tarea, columna
+
+// para probarlo usando integracion ascendente, se podria probar primero la implementacion
+// de cada clase por si misma sabiendo que son los modulos mas independientes del proyecto
+
+// como paso siguiente se podria probar siguiendo los hilos de trabajo de cada clase
+// empezando por usuario para acegurar que el control de los datos funcione sin romper el funcionamiento de la aplicación. 
+// Seguido de las tareas solamente dependen del usuario y por ultimo las funciones relacionadas a las columnas,
+// que son la clase con mas dependecias
